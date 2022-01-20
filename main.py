@@ -1,5 +1,7 @@
 """
 CMPS 2200  Recitation 1
+Gabriel Epstein
+
 """
 
 ### the only imports needed are here
@@ -37,8 +39,18 @@ def _binary_search(mylist, key, left, right):
 	Returns:
 	  index of key in mylist, or -1 if not present.
 	"""
-	### TODO
-	pass
+	middle = mylist[(len(mylist)/2)]
+
+	if mylist[middle] == key:
+		return middle
+
+	if mylist[middle] < key:
+		return _binary_search(mylist, key, middle +1, right)
+		
+	elif mylist[middle] > key:
+		return _binary_search(mylist, key, middle - 1, left)
+                
+	
 
 def test_binary_search():
 	assert binary_search([1,2,3,4,5], 5) == 4
